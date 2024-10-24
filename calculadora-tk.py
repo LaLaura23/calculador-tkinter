@@ -1,12 +1,14 @@
 import tkinter as tk
 from tkinter import messagebox
 
+#Configuração da tela principal
 janela = tk.Tk()
 altura = 200
 largura = 900
 janela.geometry(f'{largura}x{altura}')
 janela.title("Calculadora")
 
+#Função para fazer os cálculos
 def calcular(operacao, entry_num1, entry_num2):
     try:
         num1 = float(entry_num1.get())
@@ -47,6 +49,7 @@ def calcular(operacao, entry_num1, entry_num2):
     except ValueError as e:
         messagebox.showerror("Erro", str(e))
 
+#Função para abrir telas secundarias
 def abrir_tela(titulo, operacao):
     janela_secundaria = tk.Toplevel()
     janela_secundaria.title(titulo)
@@ -102,7 +105,7 @@ def abrir_tela_funcao_interpolacao():
 def abrir_tela_funcao_estimacao():
     abrir_tela("Função de Estimação", "estimação")
 
-
+#Label de instrução da tela principal
 label = tk.Label(janela, text="Escolha a operação matemática que queira fazer")
 label.grid(row=0, column=1, columnspan=2, pady=10)
 
